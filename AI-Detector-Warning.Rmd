@@ -1,0 +1,342 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+<style type="text/css">
+  body{
+    font-family: times, serif;
+    font-size: 12pt;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(readr)
+library(tidyverse)
+library(kableExtra)
+library(dplyr)
+
+set.seed(23232301)
+```
+
+# A Warning About AI Detectors
+
+## 1. Background
+
+On February 28, 2023, my brother was referred to the Office of Student Support and Judicial Affairs (OSSJA) at the University of California, Davis (UC Davis) after a midterm question he wrote was flagged by a so-called AI Detector as being written by a large-scale language model (LLM), such as ChatGPT.  
+Initially, my interest in this matter was purely selfish. I had a simple goal: to prove beyond a shadow of a doubt that my brother was innocent of the charges laid against him. So, in addition to my brother's Google Docs edit that showed him writing his midterm over the course of two hours, I decided to test GPTZero, the AI detector that flagged his midterm.  
+I started by running a sample of my brother's essays through GPTZero. My criteria for texts sampled were simple: they had to be human-written, and they had to be written prior to November 31, 2022. However, I wanted a more robust dataset, so I tested as many texts as I could. Among the types of texts: 
+- Blog Posts
+- Historical texts, such as speeches or letters
+- Snippets of literature
+- Bible passages
+Most of the texts I tested, however, were academic texts, such as:
+- Academic Essays
+- Admission Essays
+- Scholarship Essays
+- Exam Question Responses
+
+While some of the texts I tested were written by either me or my brother, the majority of these texts were taken from online sources.  
+
+### The Issue
+
+The issue arose when I compared the results of my admittedly small replication study to GPTZero's self-reported false positive rate. GPTZero self-reports a false positive rate of less than 2%. However, almost *40%* of my demonstrably human-written texts were flagged as being partly or entirely written by AI. The distributions were as followed:
+- 6.44% entirely written by AI (AI)
+- 34.7% partially written by AI (SAI)
+- 2.76% written by a human, but with sentences written by AI (HPAI)
+
+I originally attributed this issue to the fact that GPTZero was built by a 22-year-old undergraduate. However, I wanted to be sure, so I passed the texts through other AI detectors: 
+- *OpenAI*, which claims a false positive rate of less than 10%
+- *Crossplag*, which does not specify a false positive rate, but says "the tool has rarely – if any –  fails and catches a vast majority of cases"
+- *Content at Scale*, which also does not specify a false positive rate, but says "there's always a potential for false positives, but our AI detector is best-in-class for detecting AI content"
+- *Copyleaks*, which claims a false positive rate of 0.4%
+- *Kazan SEO*, for which I could not find accuracy claims.
+
+*Important Notes*
+1. I chose these AI detectors because they were easy and free to use, and the outputs were easily understandable. 
+2. Crossplag, Content at Scale, and Copyleaks are specifically advertising their detectors as tools for educators. 
+3. Content at Scale, Copyleaks, and Kazan SEO provide a 'percentage real' result rather than an 'AI' or 'Human' result. Based on GPTZero, I decided to mark anything less that 85% real as partially written by AI. 
+
+#### Upload Datasets
+
+```{r}
+aidetect <- read.csv("C:/Users/cmqua/OneDrive/Documents/AI Detector Results Datasest.csv")
+academic <- aidetect %>% subset(type %in% c("Academic Essay", "Admission Essay", "Exam", "Scholarship Essay", "Assignment"))
+```
+An explanation of the columns:
+- *id*: A unique id. The first three digits are randomly generated based on the author (or in the case of some texts found on the internet, on the source website).
+- *text*: Name of the text
+- *type*: The type of text (i.e. essay, letter, speech, etc.)
+- *subject*: The subject the text deals with
+- *author*: The author of the text
+- *date*: The date (or estimated date in some cases) the text was published or last modified
+- *openai_results*: The results generated when the text was passed through OpenAI's classifier
+  - *VUAI*: Very unlikely AI
+  - *UAI*: Unlikely AI
+  - *UC*: Unclear if [the text] is AI-generated
+  - *PAI*: Possibly AI
+  - *LAI*: Likely AI
+- *gptzero_results*: The results generated when the text was passed through GPTZero
+  - *H*: Your text was likely written entirely by a human
+  - *SAI*: Your text may include parts written by AI
+  - *AI*: Your text was likely entirely written by AI
+  - *HPAI*: Result says 'written by a human', but parts of the text are highlighted as being likely written by AI
+- *crossplag_results*: The results generated when the text was passed through Crossplag's AI Content Detector. The number represents the percentage of the text estimated to be real.
+- *content_at_scale_results*: The results generated when the text was passed through Content at Scale's AI Detector. The number represents the percentage of the text estimated to be real.
+- *copyleaks_results*: The results generated when the text was passed through Copyleaks's AI Detector. The number represents the probability that the text is human.
+- *kazan_seo_results*: he results generated when the text was passed through Kazan SEO's AI Content Detector. The number represents the percentage of the text estimated to be real.
+
+*AI Detector Results, All Texts*: 
+```{r}
+kable(head(aidetect, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>% 
+  scroll_box(width="100%", height="500px")
+```
+**Results by Detector**:
+```{r}
+print(paste("GPTZero: ", round(100*length(aidetect$id[aidetect$gptzero_results %in% c("AI", "SAI")])/length(aidetect$id), 2), "%"))
+print(paste("OpenAI: ", round(100*length(aidetect$id[aidetect$openai_results %in% c("PAI", "UC")])/length(aidetect$id), 2), "%"))
+print(paste("Crossplag: ", round(100*length(aidetect$id[aidetect$crossplag_results < 85])/length(aidetect$id), 2), "%"))
+print(paste("Content at Scale: ", round(100*length(aidetect$id[aidetect$content_at_scale_results < 85])/length(aidetect$id), 2), "%"))
+print(paste("Copyleaks: ", round(100*length(aidetect$id[aidetect$copyleaks_results < 60])/length(aidetect$id), 2), "%"))
+print(paste("Kazan SEO: ", round(100*length(aidetect$id[aidetect$kazan_seo_results < 85])/length(aidetect$id), 2), "%"))
+```
+
+**AI Detector Results, Academic Texts**:
+```{r}
+kable(head(academic, 20), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>% 
+  scroll_box(width="100%", height="750px")
+```
+**Results by Detector**:
+```{r}
+print(paste("GPTZero: ", round(100*length(academic$id[academic$gptzero_results %in% c("AI", "SAI")])/length(academic$id), 2), "%"))
+print(paste("OpenAI: ", round(100*length(academic$id[academic$openai_results %in% c("PAI", "UC")])/length(academic$id), 2), "%"))
+print(paste("Crossplag: ", round(100*length(academic$id[academic$crossplag_results < 85])/length(academic$id), 2), "%"))
+print(paste("Content at Scale: ", round(100*length(academic$id[academic$content_at_scale_results < 85])/length(academic$id), 2), "%"))
+print(paste("Copyleaks: ", round(100*length(academic$id[academic$copyleaks_results < 60])/length(academic$id), 2), "%"))
+print(paste("Kazan SEO: ", round(100*length(academic$id[academic$kazan_seo_results < 85])/length(academic$id), 2), "%"))
+```
+
+*Note*: I allowed Copyleaks a lower threshold because rather than a percentage indicating how much of a text is real, it provides a probability of how real the text is. So, for Copyleaks, I put the threshold at 60% because below that appears to be when Copyleaks 'detects' AI content. The others have a threshold of 85% real, because the OSSJA at UC Davis has indicated that even a sentence or two written by AI counts as cheating. 
+
+### Sample University
+To illustrate the sheer number of papers that will be passed through Turnitin's AI detector, I will create a sample university based on estimates derived from demographic statistics found on UC Davis's website, specifically from the following document: https://aggiedata.ucdavis.edu/sites/g/files/dgvnsk1841/files/media/documents/CDS_2020-2021_Davis.pdf  
+My sample university will have 31,000 students and offers 22 majors, distributed based on the Disciplinary areas of Degrees Conferred section in the document linked above. 
+
+```{r}
+major <- c("Agriculture", "Natural Resources and Conservation", "Area, Ethnic, and Gender Studies", "Communication and Journalism", "Computer Science", "Education", "Engineering", "Foreign Language, Literature, Linguistics", "Family and Consumer Sciences", "English", "Biological Sciences", "Mathematics and Statistics", "Interdisciplinary Studies", "Philosophy and Religious Studies", "Physical Sciences", "Psychology", "Social Services", "Social Sciences", "Visual and Performing Arts", "Health Related", "Business/Marketing", "History")
+prevalence <- c(0.0626, 0.0395, 0.022, 0.0345, 0.0341, 0.0013, 0.0992, 0.0263, 0.0017, 0.0224, 0.1513, 0.0392, 0.0357, 0.0072, 0.0157, 0.1202, 0.0044, 0.1476, 0.0454, 0.0145, 0.0631, 0.012)
+estimated_range_papers_per_quarter <- c("1-4", "1-4", "4-12", "4-12", "1-4", "4-12", "1-4", "2-6", "4-12", "4-12", "1-4", "1-4", "1-10", "4-12", "1-4", "4-12", "4-12", "4-12", "2-6", "1-10", "4-12", "4-12")
+majors <- data.frame(major = major, prevalence = prevalence, estimated_range_papers_per_quarter = estimated_range_papers_per_quarter)
+
+kable(head(majors, 22), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>% 
+  scroll_box(width="100%", height="800px")
+
+```
+
+```{r}
+sample_university <- data.frame(student_id = sample(10000:99999, size = 31000, rep = FALSE))
+sample_university <- sample_university %>% mutate(major = sample(major, size = 31000, prob = prevalence, replace = TRUE))
+
+kable(head(sample_university, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="500px")
+
+```
+
+```{r}
+low_paper <- c("Agriculture", "Natural Resources and Conservation", "Engineering", "Biological Sciences", "Mathematics and Statistics", "Physical Sciences")
+low_dim <- length(unique(sample_university$student_id[sample_university$major %in% low_paper]))
+mix_paper <- c("Interdisciplinary Studies", "Health Related")
+mix_dim <- length(unique(sample_university$student_id[sample_university$major %in% mix_paper]))
+mid_paper <- c("Foreign Language, Literature, Linguistics", "Visual and Performing Arts")
+mid_dim <- length(unique(sample_university$student_id[sample_university$major %in% mid_paper]))
+high_paper <- major[!majors$major %in% c(low_paper, mix_paper, mid_paper)]
+high_dim <- length(unique(sample_university$student_id[sample_university$major %in% high_paper]))
+
+## First quarter papers low estimate
+sample_university$q1_papers_low_estimate[sample_university$major %in% low_paper] <- sample(1:3, low_dim, rep = TRUE)
+sample_university$q1_papers_low_estimate[sample_university$major %in% mix_paper] <- sample(1:7, mix_dim, rep = TRUE)
+sample_university$q1_papers_low_estimate[sample_university$major %in% mid_paper] <- sample(2:4, mid_dim, rep = TRUE)
+sample_university$q1_papers_low_estimate[sample_university$major %in% high_paper] <- sample(4:9, high_dim, rep = TRUE)
+
+## First quarter papers high estimate
+sample_university$q1_papers_high_estimate[sample_university$major %in% low_paper] <- sample(1:4, low_dim, rep = TRUE)
+sample_university$q1_papers_high_estimate[sample_university$major %in% mix_paper] <- sample(1:10, mix_dim, rep = TRUE)
+sample_university$q1_papers_high_estimate[sample_university$major %in% mid_paper] <- sample(2:6, mid_dim, rep = TRUE)
+sample_university$q1_papers_high_estimate[sample_university$major %in% high_paper] <- sample(4:12, high_dim, rep = TRUE)
+
+## Second quarter papers low estimate
+sample_university$q2_papers_low_estimate[sample_university$major %in% low_paper] <- sample(1:3, low_dim, rep = TRUE)
+sample_university$q2_papers_low_estimate[sample_university$major %in% mix_paper] <- sample(1:7, mix_dim, rep = TRUE)
+sample_university$q2_papers_low_estimate[sample_university$major %in% mid_paper] <- sample(2:4, mid_dim, rep = TRUE)
+sample_university$q2_papers_low_estimate[sample_university$major %in% high_paper] <- sample(4:9, high_dim, rep = TRUE)
+
+## Second quarter papers high estimate
+sample_university$q2_papers_high_estimate[sample_university$major %in% low_paper] <- sample(1:4, low_dim, rep = TRUE)
+sample_university$q2_papers_high_estimate[sample_university$major %in% mix_paper] <- sample(1:10, mix_dim, rep = TRUE)
+sample_university$q2_papers_high_estimate[sample_university$major %in% mid_paper] <- sample(2:6, mid_dim, rep = TRUE)
+sample_university$q2_papers_high_estimate[sample_university$major %in% high_paper] <- sample(4:12, high_dim, rep = TRUE)
+
+## Third quarter papers low estimate
+sample_university$q3_papers_low_estimate[sample_university$major %in% low_paper] <- sample(1:3, low_dim, rep = TRUE)
+sample_university$q3_papers_low_estimate[sample_university$major %in% mix_paper] <- sample(1:7, mix_dim, rep = TRUE)
+sample_university$q3_papers_low_estimate[sample_university$major %in% mid_paper] <- sample(2:4, mid_dim, rep = TRUE)
+sample_university$q3_papers_low_estimate[sample_university$major %in% high_paper] <- sample(4:9, high_dim, rep = TRUE)
+
+## Third quarter papers high estimate
+sample_university$q3_papers_high_estimate[sample_university$major %in% low_paper] <- sample(1:4, low_dim, rep = TRUE)
+sample_university$q3_papers_high_estimate[sample_university$major %in% mix_paper] <- sample(1:10, mix_dim, rep = TRUE)
+sample_university$q3_papers_high_estimate[sample_university$major %in% mid_paper] <- sample(2:6, mid_dim, rep = TRUE)
+sample_university$q3_papers_high_estimate[sample_university$major %in% high_paper] <- sample(4:12, high_dim, rep = TRUE)
+```
+
+```{r}
+sample_university <- sample_university %>% 
+  mutate(total_papers_year_low_estimate = q1_papers_low_estimate + q2_papers_low_estimate + q3_papers_low_estimate,
+         total_papers_year_high_estimate = q1_papers_high_estimate + q2_papers_high_estimate + q3_papers_high_estimate,
+         avg_papers_per_quarter_low_estimate = total_papers_year_low_estimate/3,
+         avg_papers_per_quarter_high_estimate = total_papers_year_high_estimate/3,
+         estimated_papers_over_career_low_estimate = round(avg_papers_per_quarter_low_estimate*12),
+         estimated_papers_over_career_high_estimate = round(avg_papers_per_quarter_high_estimate*12))
+
+kable(head(sample_university, 100), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="500px")
+```
+
+```{r}
+sum(sample_university$total_papers_year_low_estimate)
+```
+```{r}
+sum(sample_university$total_papers_year_high_estimate)
+```
+We'll now create a dataframe with size n. This dataframe will represent the papers submitted by every student at Sample University over the course of one academic year (three quarters). 
+```{r}
+ids <- sample_university$student_id
+rrl <- c()
+tple <- c()
+for (i in 1:length(ids)) {
+  tple[i] <- sample_university$total_papers_year_low_estimate[i][sample_university$student_id[i]==ids[i]]
+  rrl <- c(rrl, rep(ids[i], tple[i]))
+}
+
+majors <- sample_university$major
+mml <- c()
+mle <- c()
+for (j in 1:length(majors)) {
+  mle[j] <- sample_university$total_papers_year_low_estimate[j][sample_university$major[j]==majors[j]]
+  mml <- c(mml, c(rep(major[j], mle[j])))
+}
+
+papers_low <- data.frame(paper_id = sample(100000:999999, sum(sample_university$total_papers_year_low_estimate), rep = FALSE), student_id = rrl, major = mml)
+
+kable(head(papers_low, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="360px")
+```
+
+```{r}
+n <- sum(sample_university$total_papers_year_low_estimate)
+
+gptzero <- c("AI", "SAI", "HPAI", "H")
+gptzero_probs <- c(0.0608365, 0.3155894, 0.2281369, 0.6007605)
+
+openai <- c("VUAI", "UAI", "UC", "PAI", "TS")
+openai_probs <- c(0.8733766, 0.06818182, 0.03896104, 0.006493506, 0.01298701)
+
+crossplag <- c("SAI", "H")
+crossplag_probs <- c(0.0245, 1-(0.0245))
+
+cats <- c("SAI", "H")
+cats_probs <- c(0.104, 1-(0.104))
+
+copyleaks <- c("SAI", "H")
+copyleaks_probs <- c(0.153, 1-(0.153))
+
+kazan <- c("SAI", "H")
+kazan_probs <- c(0.117, 1-(0.117))
+
+turnitin <- c("AI", "H")
+t25 <- c(0.0025, (1-0.0025))
+t5 <- c(0.005, (1-0.005))
+t75 <- c(0.0075, (1-0.0075))
+t1 <- c(0.01, (1-0.01))
+
+papers_low <- papers_low %>% 
+  mutate(gptzero_flag = sample(gptzero, size = n, prob = gptzero_probs, replace = TRUE),
+         openai_flag = sample(openai, size = n, prob = openai_probs, replace = TRUE), 
+         crossplag_flag = sample(crossplag, size = n, prob = crossplag_probs, replace = TRUE),
+         content_at_scale_flag = sample(cats, size = n, prob = cats_probs, replace = TRUE),
+         copyleaks_flag = sample(copyleaks, size = n, prob = copyleaks_probs, replace = TRUE),
+         kazan_seo_flag = sample(kazan, size = n, prob = kazan_probs, replace = TRUE),
+         turnitin_point25 = sample(turnitin, size = n, prob = t25, replace = TRUE),
+         turnitin_point5 = sample(turnitin, size = n, prob = t5, replace = TRUE),
+         turnitin_point75 = sample(turnitin, size = n, prob = t75, replace = TRUE),
+         turnitin_1 = sample(turnitin, size = n, prob = t1, replace = TRUE))
+
+kable(head(papers_low, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="500px")
+```
+
+```{r}
+rrh <- c()
+tphe <- c()
+for (i in 1:length(ids)) {
+  tphe[i] <- sample_university$total_papers_year_high_estimate[i][sample_university$student_id[i]==ids[i]]
+  rrh <- c(rrh, rep(ids[i], tphe[i]))
+}
+
+mmh <- c()
+mhe <- c()
+for (j in 1:length(majors)) {
+  mhe[j] <- sample_university$total_papers_year_high_estimate[j][sample_university$major[j]==majors[j]]
+  mmh <- c(mmh, c(rep(major[j], mhe[j])))
+}
+
+papers_high <- data.frame(paper_id = sample(100000:999999, sum(sample_university$total_papers_year_high_estimate), rep = FALSE), student_id = rrh, major = mmh)
+
+kable(head(papers_high, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="360px")
+```
+
+```{r}
+N <- sum(sample_university$total_papers_year_high_estimate)
+
+papers_high <- papers_high %>% 
+  mutate(gptzero_flag = sample(gptzero, size = N, gptzero_probs, replace = TRUE),
+         openai_flag = sample(openai, size = N, prob = openai_probs, replace = TRUE), 
+         crossplag_flag = sample(crossplag, size = N, prob = crossplag_probs, replace = TRUE),
+         content_at_scale_flag = sample(cats, size = N, prob = cats_probs, replace = TRUE),
+         copyleaks_flag = sample(copyleaks, size = N, prob = copyleaks_probs, replace = TRUE),
+         kazan_seo_flag = sample(kazan, size = N, prob = kazan_probs, replace = TRUE),
+         turnitin_point25 = sample(turnitin, size = N, prob = t25, replace = TRUE),
+         turnitin_point5 = sample(turnitin, size = N, prob = t5, replace = TRUE),
+         turnitin_point75 = sample(turnitin, size = N, prob = t75, replace = TRUE),
+         turnitin_1 = sample(turnitin, size = N, prob = t1, replace = TRUE))
+
+kable(head(papers_high, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="500px")
+```
+
+```{r}
+detectors <- c("GPTZero", "OpenAI", "Crossplag", "Content at Scale", "Copyleaks", "Kazan SEO", "Turnitin, 0.25%", "Turnitin, 0.5%", "Turnitin, 0.75%", "Turnitin, 1%")
+false_flags <- c("200,999 - 249,775", "2,631 - 3,187", "9830 - 12,013", "41,277 - 51,551", "61,320 - 76,001", "46,812 - 58,002", "1,023 - 1,263", "1,985 - 2,411", "3,065 - 3,736", "4,075 - 4,852")
+students_referred <- c("29,306 - 29,904", "2,495 - 2,995", "8212 - 9541", "21,280 - 23,323", "24,724 - 26,302", "22,399 - 24,219", "1,007 - 1,235", "1,911 - 2,306", "2,886 - 3,471", "3,759 - 4,443")
+percent_referred <- c("94.5% - 96.5%", "8.05% - 9.66%", "26.4% - 30.8%", "68.6% - 75.2%", "79.8% - 84.8%", "72.3% - 78.1%", "3.25% - 3.98%", "6.16% - 7.44%", "9.31% - 11.2%", "12.1% - 14.3%")
+
+false_positives <- data.frame(AI_Detector = detectors, False_Flags = false_flags, Unique_Students_Referred = students_referred, Percent_Students_Referred = percent_referred)
+
+kable(head(false_positives, 10), align="c", booktabs=TRUE) %>% 
+  kable_paper("hover") %>%
+  scroll_box(width="100%", height="500px")
+```
