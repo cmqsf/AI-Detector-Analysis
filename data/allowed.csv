@@ -1,0 +1,199 @@
+id,type,subject,author_id,age_range,gptzero,gptzero2,originality,orig_highlight,zerogpt,zero_highlight,gptkit,gptkit_highlight,copyleaks,content_ai_score,content_highlight,passed,turnitin
+1230101,Academic Essay,Anthropology,12301,College,AH/AI,AH/AI,0,no,50.48,yes,14,Yes,H,0,HPAI,H,NP
+1230102,Exam,History,12301,College,AH/AI,MAI,94,yes,70.01,yes,1,No,AI,0,HPAI,AI,NP
+1230103,Academic Essay,History,12301,College,H,H,33,yes,15.48,yes,0,No,H,0,HPAI,AI,NP
+1230104,Exam,Art History,12301,College,H,MAI,12,no,19.23,no,0,No,H,0,HPAI,H,NP
+1230105,Assignment,History,12301,College,AH/AI,AH/AI,0,no,21.82,yes,1,No,H,1,HPAI,H,NP
+1230106,Academic Essay,Communications,12301,College,H,H,0,no,2.52,no,4,No,H,0,HPAI,H,NP
+1230107,Exam,Art History,12301,College,H,H,24,no,0,no,0,No,H,32,Official mix,H,NP
+1230108,Academic Essay,History,12301,College,H,H,28,yes,24.74,yes,0,No,H,0,HPAI,H,NP
+1230109,Academic Essay,History,12301,College,H,H,14,no,4.7,yes,1,No,H,0,HPAI,H,TS
+1230110,Academic Essay,History,12301,College,H,HPAI/LP,3,no,18.54,yes,1,No,H,0,HPAI,H,NP
+1230111,Academic Essay,History,12301,College,H,H,7,no,15.24,no,0,No,H,11,HPAI,H,NP
+1230112,Exam,History,12301,College,H,H,0,no,0,yes,6,Yes,H,0,HPAI,H,NP
+1230113,Assignment,History,12301,College,H,H,0,no,0,no,0,No,H,0,HPAI,H,NP
+1230114,Academic Essay,History,12301,College,H,H,33,yes,6.93,yes,0,No,H,0,Not enough,AI,NP
+1230115,Academic Essay,Art History,12301,College,H,H,27,yes,2.29,no,2,No,H,0,HPAI,AI,NP
+1230116,Academic Essay,Anthropology,12301,College,H,H,33,no,0,no,12,Yes,H,0,HPAI,AI,NP
+1230117,Academic Essay,Communications,12301,College,H,H,4,no,6.48,yes,3,No,H,0,Not enough,H,NP
+1230118,Exam,History,12301,College,H,H,2,no,0,no,0,No,H,0,Not enough,AI,NP
+1230119,Assignment,History,12301,College,H,H,18,no,0,no,0,No,H,0,Not enough,H,NP
+1230120,Academic Essay,History,12301,College,H,H,47,yes,0,no,0,No,H,0,Not enough,AI,NP
+1230121,Assignment,History,12301,College,H,H,19,no,0,no,0,No,H,0,HPAI,AI,TS
+1230122,Exam,History,12301,College,H,H,24,yes,7.43,no,7,Yes,H,0,Not enough,H,NP
+1230123,Academic Essay,History,12301,College,H,H,26,no,0,no,0,No,H,0,HPAI,H,NP
+1230124,Academic Essay,History,12301,College,H,H,33,yes,0,no,4,Yes,H,0,HPAI,AI,NP
+1230125,Academic Essay,History,12301,College,H,HPAI/LP,7,no,8.64,yes,5,Yes,H,0,HPAI,H,TS
+1230126,Exam,History,12301,College,H,H,10,no,18.21,yes,1,No,H,0,HPAI,H,NP
+1230127,Academic Essay,Art History,12301,College,H,H,33,yes,0,no,0,No,H,0,HPAI,AI,NP
+1230128,Academic Essay,History,12301,College,H,H,34,yes,8.4,yes,0,No,H,0,HPAI,AI,NP
+1230129,Academic Essay,History,12301,College,H,HPAI/LP,26,no,15.64,yes,0,No,H,0,HPAI,AI,TS
+1230130,Academic Essay,History,12301,College,H,SAI,0,no,55.85,yes,9,Yes,H,0,HPAI,H,NP
+1230131,Academic Essay,History,12301,College,H,H,1,no,12.45,yes,0,No,H,0,HPAI,H,NP
+1230132,Exam,History,12301,College,H,H,14,no,0,no,10,No,H,0,Not enough,AI,NP
+1230133,Academic Essay,History,12301,College,H,H,17,no,0,no,4,No,H,0,Not enough,AI,NP
+1230134,Assignment,History,12301,College,H,H,11,no,0,no,7,Yes,H,0,Not enough,H,NP
+1230135,Exam,History,12301,College,H,H,17,no,21.94,yes,1,No,H,0,HPAI,AI,H
+1230136,Exam,History,12301,College,H,H,1,no,0,no,6,Yes,H,20,HPAI,H,H
+1230137,Exam,History,12301,College,H,H,0,no,3.45,no,7,Yes,H,0,Not enough,H,H
+1230138,Assignment,History,12301,College,H,H,86,yes,0,no,29,Yes,H,0,HPAI,H,H
+1230139,Exam,History,12301,College,H,H,0,no,0,no,0,No,H,0,Not enough,H,H
+1230140,Assignment,History,12301,College,H,H,48,yes,0,no,0,No,H,0,Not enough,AI,H
+1230141,Assignment,History,12301,College,H,H,0,no,0,no,7,No,H,0,Not enough,H,H
+1230142,Academic Essay,History,12301,College,H,H,11,no,5.19,yes,3,Yes,H,0,Not enough,H,H
+1230143,Academic Essay,History,12301,College,H,H,0,no,0,no,2,Yes,H,0,HPAI,H,H
+1230144,Academic Essay,History,12301,College,H,H,55,yes,0,no,2,No,H,0,HPAI,AI,H
+1230145,Exam,History,12301,College,AH/AI,MAI,1,no,57.11,yes,49,Yes,H,0,Not enough,H,H
+1428601,Blog Post,Opinion,14286,High School,MAI,MAI,33,yes,62.38,yes,4,Yes,H,25,Official mix,AI,AI
+1428602,Admission Essay,Personal,14286,High School,AH/AI,AH/AI,100,yes,57.42,yes,5,No,H,1,HPAI,AI,H
+1428603,Admission Essay,Personal,14286,High School,AH/AI,MAI,3,no,72.24,yes,3,No,H,50,Unclear,H,H
+1428604,Academic Essay,English,14286,High School,H,H,24,yes,11.19,yes,7,Yes,H,0,Not enough,H,H
+1428605,Literature,Literary Fiction,14286,Adult,H,H,3,no,6.97,yes,0,No,H,0,Not enough,H,H
+1428606,Literature,Literary Fiction,14286,Adult,H,H,1,no,16.23,yes,1,No,H,0,Not enough,H,H
+1428607,Academic Essay,Opinion,14286,High School,H,H,0,no,15.19,yes,0,No,H,0,HPAI,H,H
+1428608,Admission Essay,Personal,14286,High School,H,H,70,yes,0,no,0,No,H,2,HPAI,AI,TS
+1428609,Admission Essay,Personal,14286,High School,H,H,0,no,48.33,yes,0,No,H,0,HPAI,H,TS
+1428610,Academic Essay,English,14286,High School,H,H,36,yes,7.42,yes,0,No,H,0,HPAI,AI,AI
+1428611,Blog Post,Informational,14286,Adult,H,H,0,no,9.56,yes,5,No,H,0,Not enough,H,H
+1428612,Academic Essay,English,14286,High School,H,H,49,yes,14.07,yes,0,No,H,0,HPAI,AI,AI
+1428613,Blog Post,Opinion,14286,High School,H,MAI,41,yes,33.96,yes,0,No,H,0,Not enough,AI,H
+1428614,Literature,Literary Fiction,14286,Adult,H,H,2,no,22.24,yes,43,No,H,0,Not enough,H,H
+1428615,Academic Essay,Opinion,14286,High School,H,AH/AI,0,no,41.38,yes,0,No,H,39,Official mix,H,H
+1428616,Blog Post,Opinion,14286,College,H,SAI,1,no,35.36,yes,31,Yes,H,0,HPAI,H,H
+1428617,Academic Essay,Biology,14286,High School,MAI,MAI,35,no,97.22,yes,19,Yes,H,50,Unclear,H,H
+1428618,Academic Essay,Biology,14286,High School,H,MAI,1,no,29.18,yes,0,No,H,0,Not enough,AI,H
+1428619,Admission Essay,Personal,14286,High School,H,MAI,100,yes,71.61,yes,14,Yes,H,0,HPAI,AI,H
+1428620,Blog Post,Opinion,14286,High School,H,HPAI/LP,49,yes,11.69,yes,0,No,H,0,Not enough,AI,H
+1428621,Admission Essay,Personal,14286,High School,H,HPAI/LP,2,no,31.12,yes,3,No,H,0,HPAI,H,AI
+1428622,Literature,Literary Fiction,14286,College,H,H,97,yes,34.26,yes,3,Yes,H,0,Not enough,AI,AI
+1428623,Literature,Literary Fiction,14286,College,H,H,0,no,4.05,no,0,No,H,0,HPAI,H,H
+1428624,Academic Essay,Biology,14286,College,H,MAI,12,no,90.15,yes,1,No,H,0,HPAI,AI,H
+1428625,Literature,Literary Fiction,14286,High School,H,HPAI/LP,90,yes,23.54,yes,2,No,H,0,HPAI,AI,H
+1428626,Literature,Literary Fiction,14286,Adult,H,H,0,no,4.3,no,0,No,H,0,HPAI,H,H
+1428627,Literature,Satire,14286,College,H,H,0,no,0,no,0,No,H,0,Not enough,H,TS
+1428628,Literature,Satire,14286,College,H,H,0,no,8.18,yes,0,No,H,0,Not enough,H,H
+1428629,Literature,Personal,14286,College,SAI,SAI,0,no,34.39,no,0,No,H,0,Not enough,H,TS
+1428630,Literature,Personal,14286,College,AH/AI,AH/AI,0,no,28.63,no,0,No,H,0,Not enough,H,H
+1428631,Blog Post,Opinion,14286,High School,EAI,EAI,5,no,66.59,yes,0,No,H,0,HPAI,H,AI
+1428632,Academic Essay,English,14286,High School,AH/AI,H,18,yes,9.24,yes,0,No,H,0,Not enough,AI,H
+1428633,Admission Essay,Personal,14286,High School,MAI,MAI,96,yes,59.61,yes,41,No,H,0,HPAI,AI,TS
+1428634,Admission Essay,Personal,14286,High School,H,AH/AI,8,no,87.1,yes,89,Yes,H,0,HPAI,H,TS
+1428635,Admission Essay,Personal,14286,High School,NHAI,NHAI,54,yes,91.31,yes,5,No,H,0,Not enough,AI,TS
+1428636,Admission Essay,Personal,14286,High School,H,NHAI,0,no,52.27,yes,88,Yes,H,0,Not enough,H,TS
+1428637,Admission Essay,Personal,14286,High School,AH/AI,AH/AI,3,no,48,yes,62,Yes,H,0,HPAI,H,TS
+1428638,Job Application,Professional,14286,Adult,H,H,10,no,24.94,yes,24,No,AI,1,HPAI,H,TS
+1428639,Job Application,Professional,14286,Adult,H,AH/AI,99,yes,88.69,yes,2,No,H,1,HPAI,AI,TS
+1428640,Job Application,Professional,14286,Adult,H,AH/AI,2,no,16.64,yes,2,Yes,H,0,HPAI,H,H
+1428641,Job Application,Professional,14286,Adult,H,AH/AI,70,yes,75.91,yes,18,Yes,H,0,HPAI,AI,TS
+1428642,Job Application,Professional,14286,Adult,H,SAI,96,yes,8.64,no,0,No,H,0,Not enough,AI,TS
+2229801,Letter,Personal,22298,High School,H,MAI,0,no,80.32,yes,2,No,H,0,HPAI,H,TS
+2229802,Exam,Technology,22298,College,H,H,0,no,1.06,no,5,No,H,1,HPAI,H,H
+2229803,Academic Essay,Technology,22298,College,H,H,0,no,14.32,yes,0,No,H,9,HPAI,H,H
+2229804,Exam,Science,22298,College,H,H,0,no,13.99,yes,3,Yes,H,0,Not enough,H,H
+6233001,Letter,Personal,62330,Adult,H,H,0,no,0,no,0,No,H,0,Not enough,H,H
+6233002,Letter,Personal,62330,Adult,H,H,50,no,0,no,0,No,H,0,Not enough,H,H
+6233003,Letter,Personal,62330,Adult,H,H,0,no,0,no,0,No,H,0,Not enough,H,H
+6233004,Letter,Personal,62330,Adult,H,H,1,no,0,no,0,No,H,0,Not enough,H,H
+8073201,Letter,Personal,80732,Child,H,H,0,no,0,no,0,No,H,0,Not enough,H,TS
+8073202,Letter,Personal,80732,Adult,MAI,MAI,0,no,29.35,yes,0,No,H,0,Not enough,H,TS
+8073203,Letter,Personal,80732,Adult,H,H,0,no,16.73,yes,0,No,H,0,Not enough,H,TS
+4371101,Academic Essay,History,43711,College,AH/AI,AH/AI,50,yes,37.8,yes,8,Yes,H,0,HPAI,AI,AI
+4371102,Academic Essay,Politics,43711,College,HPAI/LP,HPAI/LP,7,yes,35,yes,0,No,H,0,HPAI,AI,H
+4371103,Academic Essay,Politics,43711,College,HPAI/LP,SAI,2,no,15,yes,21,Yes,H,0,HPAI,H,H
+4371104,Legal Brief,Law,43711,College,HPAI/LP,H,48,yes,21.79,yes,0,No,H,0,HPAI,AI,H
+4371105,Academic Essay,Politics,43711,College,HPAI/LP,HPAI/LP,3,no,23.35,yes,0,No,AI,0,HPAI,H,AI
+1428643,Book Review,English,14286,Adult,H,H,0,no,30.57,yes,1,No,H,0,Not enough,H,H
+1428644,Book Review,English,14286,Adult,AH/AI,AH/AI,10,no,48.51,yes,0,No,H,92,Very likely AI,H,TS
+1428645,Book Review,English,14286,Adult,AH/AI,AH/AI,4,no,56.89,yes,4,No,H,0,HPAI,H,TS
+1428646,Book Review,English,14286,Adult,SAI,SAI,100,yes,53.56,yes,19,Yes,H,1,HPAI,AI,TS
+1428647,Book Review,English,14286,Adult,H,H,48,yes,11.75,yes,1,No,H,0,HPAI,AI,H
+1428648,Book Review,English,14286,Adult,H,H,3,no,48.63,yes,54,No,H,0,Not enough,H,TS
+1428649,Book Review,English,14286,Adult,AH/AI,AH/AI,1,no,30.46,yes,7,Yes,H,0,Not enough,H,TS
+1428650,Book Review,English,14286,Adult,SAI,SAI,0,no,32.2,yes,1,No,H,0,HPAI,H,H
+1428651,Book Review,English,14286,Adult,H,H,88,yes,24.23,yes,0,No,H,0,Not enough,AI,TS
+1428652,Book Review,English,14286,Adult,AH/AI,AH/AI,0,no,64.05,yes,6,No,H,0,Not enough,H,TS
+1428653,Book Review,English,14286,Adult,H,H,0,no,33.43,yes,3,No,H,0,Not enough,H,H
+1428654,Book Review,English,14286,Adult,HPAI/LP,HPAI/LP,15,no,23.73,yes,5,No,H,50,Unclear,H,H
+1428655,Book Review,English,14286,Adult,H,H,1,no,9.76,no,9,No,H,0,Not enough,H,H
+1428656,Book Review,English,14286,Adult,H,H,50,yes,10.12,no,4,No,H,0,Not enough,AI,H
+1428657,Book Review,English,14286,Adult,SAI,SAI,41,yes,49.07,yes,3,No,H,0,Not enough,AI,TS
+1428658,Book Review,English,14286,Adult,H,H,11,no,15.82,yes,3,No,H,0,HPAI,H,H
+1428659,Book Review,English,14286,Adult,H,H,0,no,0,no,6,No,H,0,Not enough,H,TS
+1428660,Book Review,English,14286,Adult,H,H,76,yes,0,no,34,No,H,0,Not enough,AI,TS
+1428661,Book Review,English,14286,Adult,MAI,MAI,0,no,48.71,yes,54,No,H,0,HPAI,H,NP
+1428662,Book Review,English,14286,Adult,H,H,0,no,0,no,4,No,H,50,Unclear,H,H
+1428663,Book Review,English,14286,Adult,H,H,19,no,16.61,no,48,Yes,H,0,HPAI,H,H
+1428664,Book Review,English,14286,Adult,SAI,SAI,0,no,32,yes,8,No,H,0,Not enough,H,TS
+1428665,Book Review,English,14286,Adult,H,H,1,no,35.16,yes,8,Yes,H,0,HPAI,AI,H
+1428666,Book Review,English,14286,Adult,MAI,MAI,3,no,40.91,yes,7,No,H,0,Not enough,H,TS
+1428667,Book Review,English,14286,Adult,H,H,1,no,0,no,0,No,H,0,Not enough,H,TS
+1428668,Book Review,English,14286,Adult,H,H,77,yes,43.13,yes,41,No,H,0,HPAI,AI,TS
+1428669,Book Review,English,14286,Adult,H,H,1,no,0,no,5,No,H,0,Not enough,H,TS
+1428670,Book Review,English,14286,Adult,H,H,2,no,13.91,yes,0,No,H,0,HPAI,H,H
+1428671,Book Review,English,14286,Adult,H,H,0,no,28.85,yes,5,No,H,0,Not enough,H,H
+1428672,Book Review,English,14286,Adult,H,H,0,no,27.62,yes,4,No,H,0,HPAI,H,H
+1428673,Book Review,English,14286,Adult,H,H,1,no,24.67,yes,24,Yes,H,0,HPAI,H,TS
+1428674,Book Review,English,14286,Adult,H,H,0,no,36.67,yes,4,No,H,0,Not enough,H,H
+1428675,Book Review,English,14286,Adult,H,H,99,yes,27.66,yes,4,No,H,0,Not enough,AI,TS
+1428676,Book Review,English,14286,Adult,H,H,1,no,22.71,yes,8,No,H,1,Not enough,H,H
+1428677,Book Review,English,14286,Adult,H,H,31,no,24.1,yes,5,No,H,0,Not enough,H,TS
+1428678,Book Review,English,14286,Adult,H,H,1,no,0,no,2,No,H,0,Not enough,H,TS
+1428679,Book Review,English,14286,Adult,H,H,0,no,30.62,yes,1,No,H,0,Not enough,H,TS
+1428680,Book Review,English,14286,Adult,H,H,49,yes,0,no,1,No,H,0,Not enough,AI,TS
+1428681,Book Review,English,14286,Adult,H,H,0,no,41.22,yes,0,No,H,0,HPAI,H,TS
+1428682,Book Review,English,14286,Adult,H,H,70,yes,48.04,yes,0,No,H,0,Not enough,H,TS
+1428683,Book Review,English,14286,Adult,H,H,72,yes,0,no,35,No,H,0,Not enough,AI,TS
+1428684,Book Review,English,14286,Adult,H,H,15,no,24.8,yes,0,No,H,0,Not enough,H,H
+1428685,Book Review,English,14286,Adult,H,H,0,no,3.95,no,0,No,H,0,HPAI,H,H
+1428686,Book Review,English,14286,Adult,H,H,19,no,19.67,yes,0,No,H,0,HPAI,H,H
+1428687,Book Review,English,14286,Adult,H,H,9,yes,28.2,yes,0,No,H,0,HPAI,H,H
+1428688,Book Review,English,14286,Adult,H,H,0,no,6.21,no,6,No,H,0,Not enough,H,H
+1428689,Book Review,English,14286,Adult,H,H,9,yes,11,yes,0,No,H,0,Not enough,AI,H
+1428690,Book Review,English,14286,Adult,H,H,18,yes,19.93,yes,0,No,H,0,HPAI,AI,H
+1428691,Literature,Literary Fiction,14286,Adult,H,H,0,no,5.97,no,0,No,H,0,Not enough,H,H
+1428692,Literature,Literary Fiction,14286,Adult,H,H,0,no,1,no,0,No,H,0,Not enough,H,H
+3794401,Blog Post,Personal,37944,Adult,H,H,0,no,2,no,0,No,H,0,Not enough,H,H
+3794402,Blog Post,Politics,37944,Adult,H,H,0,no,15.33,yes,0,No,H,0,Not enough,H,H
+3794403,Blog Post,Personal,37944,Adult,MAI,MAI,0,no,21.21,yes,0,No,H,0,Not enough,H,H
+3794404,Teaching Material,Writing,37944,Adult,H,H,10,yes,50.38,yes,0,No,H,0,Not enough,AI,NP
+3794405,Teaching Material,Writing,37944,Adult,H,H,11,no,0,no,0,No,H,0,Not enough,H,H
+3794406,Teaching Material,Writing,37944,Adult,H,H,0,no,33.48,yes,0,No,H,0,HPAI,H,AI
+3794407,Teaching Material,Writing,37944,Adult,H,H,0,no,0,no,0,No,H,0,Not enough,H,H
+3794408,Teaching Material,Writing,37944,Adult,MAI,MAI,0,no,40.33,yes,0,No,H,0,HPAI,H,AI
+3794409,Teaching Material,Writing,37944,Adult,H,H,12,no,6.88,no,0,No,H,0,Not enough,H,H
+3794410,Teaching Material,Writing,37944,Adult,HPAI/LP,HPAI/LP,0,no,15.06,yes,0,No,H,0,Not enough,H,H
+3794411,Teaching Material,Writing,37944,Adult,H,H,2,yes,0,no,0,No,H,0,Not enough,H,H
+3794412,Teaching Material,Writing,37944,Adult,HPAI/LP,HPAI/LP,0,no,2.86,no,0,No,H,0,Not enough,H,AI
+3794413,Teaching Material,Writing,37944,Adult,H,H,0,no,10.83,no,0,No,H,0,Not enough,H,AI
+3794414,Teaching Material,Writing,37944,Adult,H,H,35,yes,0,no,0,No,H,0,Not enough,AI,H
+3794415,Teaching Material,Writing,37944,Adult,H,H,0,no,8.27,no,0,No,H,0,Not enough,H,H
+3794416,Teaching Material,Technology,37944,Adult,AH/AI,AH/AI,0,no,0,no,0,No,H,0,Not enough,H,H
+3794417,Blog Post,Technology,37944,Adult,H,H,0,no,7,no,0,No,H,0,Not enough,H,H
+3794418,Blog Post,Technology,37944,Adult,H,H,0,no,2.45,no,0,No,H,0,Not enough,H,H
+3794419,Article,Language,37944,Adult,H,H,5,no,TL,yes,0,No,TL,0,Not enough,H,H
+3794420,Article,Language,37944,Adult,H,H,0,yes,TL,yes,5,Yes,TL,0,HPAI,H,H
+3794421,Recommendation Letter,Personal,37944,Adult,H,H,0,no,0,no,0,No,H,1,Not enough,H,H
+3794422,Recommendation Letter,Personal,37944,Adult,H,H,2,no,13.28,yes,0,No,H,0,HPAI,H,H
+3794423,Recommendation Letter,Personal,37944,Adult,H,H,47,yes,14.41,yes,2,No,H,1,HPAI,H,H
+3794424,Recommendation Letter,Personal,37944,Adult,H,H,1,no,9,yes,0,No,H,0,HPAI,H,H
+3794425,Recommendation Letter,Personal,37944,Adult,NHAI,NHAI,0,no,24.88,yes,0,No,H,0,Not enough,H,H
+3794426,Assignment,Language,37944,Adult,H,H,12,yes,0,no,14,No,H,0,Not enough,H,H
+3794427,Assignment,Language,37944,Adult,H,H,0,no,0,no,2,No,H,0,Not enough,H,H
+3794428,Assignment,Language,37944,Adult,H,H,0,no,6.16,no,2,No,H,0,Not enough,H,H
+3794429,Assignment,Language,37944,Adult,H,H,0,no,0,no,0,No,H,0,Not enough,H,H
+3794430,Assignment,Language,37944,Adult,H,H,0,no,9.32,yes,0,No,H,0,Not enough,AI,H
+3794431,Blog Post,Personal,37944,Adult,MAI,MAI,0,no,0,no,0,No,H,0,Not enough,H,H
+3794432,Blog Post,Personal,37944,Adult,AH/AI,AH/AI,2,no,8.61,no,0,No,H,0,Not enough,H,H
+3794433,Teaching Material,Writing,37944,Adult,MAI,MAI,1,no,12.92,yes,1,No,H,0,HPAI,H,H
+1032601,AMS Final Q2,Sociology,10326,College,NA,SAI,8,no,0,no,44,Yes,AI,50,Unclear,NA,NA
+1032602,AMS Final Q5,Sociology,10326,College,NA,H,1,no,0,no,0,No,H,0,Not enough,NA,NA
+1032603,AMS Final Q6,Sociology,10326,College,NA,H,1,no,0,no,2,Yes,H,0,Not enough,NA,NA
+1032604,AMS Final E1,Sociology,10326,College,NA,H,23,yes,0,no,0,No,H,0,Not enough,NA,NA
+1032605,Frontier Barbarism Civilization,Sociology,10326,College,NA,SAI,100,yes,11.93,yes,8,Yes,,0,HPAI,NA,NA
+1032606,Attendance 5 1,Sociology,10326,College,NA,H,0,no,0,no,29,Yes,,0,Not enough,NA,NA
+1032607,Attendance 5 2,Sociology,10326,College,NA,H,1,no,0,no,41,Yes,,0,Not enough,NA,NA
+1032608,Beatles,Music,10326,College,NA,H,0,no,0,no,2,No,,0,Not enough,NA,NA
+1032609,Traditional Elements Music,Music,10326,College,NA,H,0,no,0,no,0,No,,0,HPAI,NA,NA
+1032610,Observation Fiilming Reflection,Film,10326,College,NA,H,52,yes,0,no,8,No,,0,Not enough,NA,NA
+1032611,Primitivism,Music,10326,College,NA,H,8,no,0,no,0,No,,0,Not enough,NA,NA
+1032612,Primitivism 2,Music,10326,College,NA,H,1,no,0,no,3,No,,0,Not enough,NA,NA
